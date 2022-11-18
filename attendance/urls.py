@@ -1,7 +1,8 @@
+from django.urls import path
 from rest_framework.routers import DefaultRouter
 
 from attendance.views import SemesterViewset, CourseViewset, LecturerViewset, StudentViewset, ClassViewset, \
-    CollegeDayViewset, EnrollmentViewset, AttendanceViewset
+    CollegeDayViewset, EnrollmentViewset, AttendanceViewset, attendance_detail
 
 router = DefaultRouter()
 
@@ -18,3 +19,6 @@ router.register('enrollment',EnrollmentViewset,'enrollment_model_viewset')
 router.register('attendance',AttendanceViewset,'attendance_model_viewset')
 
 urlpatterns = router.urls
+
+
+urlpatterns.append(path('attendance_details/', attendance_detail))

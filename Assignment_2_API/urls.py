@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.authtoken.views import obtain_auth_token
 
+from attendance.views import CustomAuthToken
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     path('',include('attendance.urls')),
-    path('auth/', obtain_auth_token)
+    path('auth/', CustomAuthToken.as_view())
 ]
