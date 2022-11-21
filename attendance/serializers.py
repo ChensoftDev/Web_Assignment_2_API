@@ -78,6 +78,7 @@ class StudentSerializer(serializers.ModelSerializer):
         return student
 
 
+
 class ClassSerializer(serializers.ModelSerializer):
     class Meta:
         model = Class
@@ -101,16 +102,19 @@ class EnrollmentSerializer(serializers.ModelSerializer):
         model = Enrollment
         fields = "__all__"
 
+
 class AttendanceSerializerWithValue(serializers.ModelSerializer):
     class Meta:
         model = Attendance
         fields = "__all__"
+
     def to_representation(self, obj):
         return {
             "class": obj.classID.number,
             "date": obj.collegedayID.date,
             "status": obj.status,
         }
+
 
 class AttendanceSerializer(serializers.ModelSerializer):
     class Meta:

@@ -2,7 +2,7 @@ from django.urls import path
 from rest_framework.routers import DefaultRouter
 
 from attendance.views import SemesterViewset, CourseViewset, LecturerViewset, StudentViewset, ClassViewset, \
-    CollegeDayViewset, EnrollmentViewset, AttendanceViewset, attendance_detail
+    CollegeDayViewset, EnrollmentViewset, AttendanceViewset, attendance_detail, uploadStudentListFromFile, sendEmail
 
 router = DefaultRouter()
 
@@ -22,3 +22,5 @@ urlpatterns = router.urls
 
 
 urlpatterns.append(path('attendance_details/', attendance_detail))
+urlpatterns.append(path('upload/', uploadStudentListFromFile))
+urlpatterns.append(path('sendemail/', sendEmail))
